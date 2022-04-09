@@ -23,8 +23,7 @@ public class Chat {
 
     public void say(String userName, String text) {
         try {
-            ResultSet rs = stmt
-                    .executeQuery("INSERT INTO messages( mess) VALUES ( \'" + userName + ":" + text + "\')");
+            stmt.executeQuery("INSERT INTO messages( mess,us) VALUES ( \'" + text + "\',\'" + userName + "\')");
         } catch (SQLException e) {
             System.out.println("e:" + e.getMessage());
             System.out.println("Connection Failed");
